@@ -1,0 +1,465 @@
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0f1117;
+    color: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   NAVIGATION BAR
+======================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 64px;
+
+    background: #151821;
+
+    border-bottom: 1px solid #272b36;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    z-index: 1000;
+}
+
+
+/* ========================================
+   LEFT SECTION
+======================================== */
+
+.left-section {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* ========================================
+   THREE-LINE MENU BUTTON
+======================================== */
+
+.menu-button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+
+    transition: background 0.2s ease;
+}
+
+.menu-button:hover {
+    background: #242936;
+}
+
+.menu-button span {
+    width: 21px;
+    height: 2px;
+
+    background: #d8dbe3;
+
+    border-radius: 10px;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+    font-size: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* ========================================
+   PROFILE BUTTON
+======================================== */
+
+.profile-button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 1px solid #3a3f4c;
+
+    background: #242936;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: background 0.2s ease;
+}
+
+.profile-button:hover {
+    background: #303644;
+}
+
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.main {
+    min-height: 100vh;
+
+    padding-top: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+.welcome p {
+    color: #9da3b1;
+
+    font-size: 16px;
+}
+
+
+/* ========================================
+   SLIDING SIDE MENU
+======================================== */
+
+.side-menu {
+    position: fixed;
+
+    top: 0;
+    left: -320px;
+
+    width: 320px;
+    height: 100vh;
+
+    background: #171a22;
+
+    border-right: 1px solid #2a2e39;
+
+    z-index: 2000;
+
+    padding-top: 10px;
+
+    transition: left 0.28s ease;
+}
+
+
+/* Menu open state */
+
+.side-menu.active {
+    left: 0;
+}
+
+
+/* ========================================
+   SIDE MENU HEADER
+======================================== */
+
+.side-header {
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #292d37;
+}
+
+.side-header h2 {
+    font-size: 17px;
+}
+
+
+/* Close button */
+
+.close-menu {
+    border: none;
+
+    background: transparent;
+
+    color: #b9bec9;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   MENU CONTENT
+======================================== */
+
+.menu-content {
+    padding: 20px;
+}
+
+
+/* ========================================
+   PROFILE PANEL
+======================================== */
+
+.profile-panel {
+    position: fixed;
+
+    top: 74px;
+    right: 20px;
+
+    width: 280px;
+
+    background: #171a22;
+
+    border: 1px solid #2b303c;
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 1500;
+}
+
+
+/* Profile open state */
+
+.profile-panel.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   PROFILE INFORMATION
+======================================== */
+
+.profile-top {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #2a2e39;
+}
+
+
+.profile-avatar {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: #2b303c;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+.profile-name {
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.profile-status {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color: #858c9a;
+}
+
+
+/* ========================================
+   BACKGROUND OVERLAY
+======================================== */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.25s ease;
+
+    z-index: 1900;
+}
+
+
+/* Overlay active */
+
+.overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .side-menu {
+        width: 280px;
+        left: -280px;
+    }
+
+    .welcome h1 {
+        font-size: 32px;
+    }
+
+    .profile-panel {
+        right: 12px;
+        width: calc(100% - 24px);
+    }
+}
+
+
+/* ========================================
+   MINIMAL SCROLLBAR
+======================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a3f4a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #505665;
+}
+
+/* ========================================
+   MENU ELEMENTS
+======================================== */
+
+.elements {
+    border: none;
+    background: #171a22;
+    padding: 12px;
+    color: rgb(220, 216, 216);
+    font-size: 15px;
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+
+    /* Smooth hover animation */
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Hover effect */
+.elements:hover {
+    background: #0f1117;;
+    border-color: #0f1117;;
+    color: #ffffff;
+    transform: translateX(3px);
+    border-radius: 4px;
+}
+
+/* Optional: when the element is being clicked */
+.elements:active {
+    transform: translateX(3px) scale(0.98);
+    background: white;
+    color: black;
+}
+
+
+
